@@ -1,5 +1,4 @@
 import ppb
-
 from player import Player
 from target import Target
 
