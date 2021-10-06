@@ -1,5 +1,5 @@
 import ppb
-from ppb.events import ButtonPressed, ButtonReleased
+from ppb.events import ButtonPressed
 from ppb_vector import Vector
 
 class Destiny(ppb.Sprite):
@@ -10,7 +10,3 @@ class Destiny(ppb.Sprite):
 
     def on_button_pressed(self, button_event: ButtonPressed, signal):
         button_event.scene.remove(self)
-
-
-    def on_button_released(self, button_event: ButtonReleased, signal):
-        self.position = button_event.position
