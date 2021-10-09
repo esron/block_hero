@@ -4,6 +4,7 @@ from ppb.keycodes import Escape
 from ppb_vector import Vector
 from destiny import Destiny
 from projectile import Projectile
+from target import Target
 
 
 class Player(ppb.Sprite):
@@ -14,12 +15,31 @@ class Player(ppb.Sprite):
     fire_timer = 0.0
     move_speed = 4
 
+    def find_closest_target(self, update_event: Update):
+        closest = None
+        min_distance = 1000000 # A big number
+
+        for t in update_event.scene.get(kind=Target):
+            distance = (t.position - self.position).length
+            if distance < min_distance:
+                min_distance = distance
+                closest = t
+
+        return closest
+
+
     def on_update(self, update_event: Update, signal):
         self.fire_timer += update_event.time_delta
 
         if self.fire_timer > 1 and  self.speed == 0:
             self.fire_timer = 0
-            update_event.scene.add(Projectile(position=self.position + ppb.Vector(0, 0.5)))
+            closest_target = self.find_closest_target(update_event)
+
+            if closest_target:
+                update_event.scene.add(Projectile(
+                    position=self.position + ppb.Vector(0, 0.5),
+                    direction=(closest_target.position - self.position).normalize()
+                ))
 
         self.position += self.direction * self.speed * update_event.time_delta
 
