@@ -12,6 +12,7 @@ class Player(ppb.Sprite):
     speed  = 0
     target = Vector(0 ,0)
     fire_timer = 0.0
+    move_speed = 4
 
     def on_update(self, update_event: Update, signal):
         self.fire_timer += update_event.time_delta
@@ -35,17 +36,17 @@ class Player(ppb.Sprite):
 
     def on_button_pressed(self, button_event: ButtonPressed, signal):
         self.target = button_event.position
-        self.speed = 4
+        self.speed = self.move_speed
 
     def on_button_released(self, button_event: ButtonReleased, signal):
         button_event.scene.add(Destiny(button_event.position))
         self.target = button_event.position
-        self.speed = 4
+        self.speed = self.move_speed
 
     def on_mouse_motion(self, mouse_event: MouseMotion, signal):
         if mouse_event.buttons:
             self.target = mouse_event.position
-            self.speed = 4
+            self.speed = self.move_speed
 
     def on_key_pressed(self, key_event: KeyPressed, signal):
         if key_event.key == Escape:
