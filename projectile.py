@@ -1,11 +1,12 @@
 import ppb
+from ppb.events import Update
 
 
 class Projectile(ppb.Sprite):
     size = 0.25
     speed = 6
 
-    def on_update(self, update_event, signal):
+    def on_update(self, update_event: Update, signal):
         if self.direction:
             direction = self.direction.normalize()
         else:
