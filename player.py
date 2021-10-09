@@ -3,6 +3,7 @@ from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Q
 from ppb.keycodes import Escape
 from ppb_vector import Vector
 from destiny import Destiny
+from projectile import Projectile
 
 
 class Player(ppb.Sprite):
@@ -10,8 +11,15 @@ class Player(ppb.Sprite):
     direction = ppb.Vector(0, 0)
     speed  = 0
     target = Vector(0 ,0)
+    fire_timer = 0.0
 
     def on_update(self, update_event: Update, signal):
+        self.fire_timer += update_event.time_delta
+
+        if self.fire_timer > 1 and  self.speed == 0:
+            self.fire_timer = 0
+            update_event.scene.add(Projectile(position=self.position + ppb.Vector(0, 0.5)))
+
         self.position += self.direction * self.speed * update_event.time_delta
 
         if (self.target - self.position).length > 0.0001: #  Prevent division by zero
