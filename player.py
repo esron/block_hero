@@ -37,7 +37,7 @@ class Player(ppb.Sprite):
 
             if closest_target:
                 update_event.scene.add(Projectile(
-                    position=self.position + ppb.Vector(0, 0.5),
+                    position=self.position,
                     direction=(closest_target.position - self.position).normalize()
                 ))
 
