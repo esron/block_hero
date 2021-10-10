@@ -2,6 +2,7 @@ import ppb
 from ppb.events import Update
 from ppb_vector import Vector
 from projectile import Projectile
+from score import Score
 
 
 class Target(ppb.Sprite):
@@ -13,6 +14,8 @@ class Target(ppb.Sprite):
             if (p.position - self.position).length <= self.size:
                 update_event.scene.remove(self)
                 update_event.scene.remove(p)
+                for s in update_event.scene.get(kind=Score):
+                    s.points += 1
                 break
 
         self.position += self.direction * self.speed * update_event.time_delta
