@@ -6,6 +6,7 @@ from score import Score
 
 
 class Target(ppb.Sprite):
+    layer = 1
     speed = 2
     direction = Vector(0, 0)
 

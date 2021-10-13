@@ -8,6 +8,7 @@ from target import Target
 
 
 class Player(ppb.Sprite):
+    layer = 1
     position = ppb.Vector(0, -7)
     direction = ppb.Vector(0, 0)
     speed  = 0

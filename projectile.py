@@ -3,6 +3,7 @@ from ppb.events import Update
 
 
 class Projectile(ppb.Sprite):
+    layer = 2
     size = 0.25
     speed = 6
 
