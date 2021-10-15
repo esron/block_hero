@@ -1,16 +1,8 @@
 import ppb
-from player import Player
-from score import Score
-from spawner import Spawner
-from target import Target
+from title_screen import TitleScreen
 
+start_scene = ppb.Scene()
+start_scene.background_color = (0, 0, 0)
+start_scene.add(TitleScreen())
 
-def setup(scene):
-    scene.add(Player())
-    scene.add(Spawner())
-    scene.add(Score())
-
-    for x in range(-4, 5, 2):
-        scene.add(Target(position=ppb.Vector(x, 3)))
-
-ppb.run(setup=setup)
+ppb.GameEngine(first_scene=start_scene).run()
