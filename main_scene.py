@@ -1,6 +1,6 @@
 import ppb
 from ppb.events import SceneStarted
-from title_screen import TitleScreen
+from title_sprite import TitleSprite
 
 
 class MainScene(ppb.Scene):
@@ -8,4 +8,4 @@ class MainScene(ppb.Scene):
 
     def on_scene_started(self, scene_event: SceneStarted, signal):
         print('Main Scene')
-        self.add(TitleScreen())
+        self.add(TitleSprite())

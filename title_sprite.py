@@ -6,7 +6,7 @@ from score import Score
 from spawner import Spawner
 from target import Target
 
-class TitleScreen(ppb.Sprite):
+class TitleSprite(ppb.Sprite):
     image = ppb.Text(
         f'BLOCK HERO\n\nPRESS ANY KEY',
         font=ppb.Font('fonts\RobotoMono-Regular.ttf', size=48),
