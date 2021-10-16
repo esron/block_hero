@@ -1,8 +1,9 @@
 import ppb
-from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, Update
+from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, SceneContinued, StartScene, StopScene, Update
 from ppb.keycodes import Escape
 from ppb_vector import Vector
 from destiny import Destiny
+from game_over_screen import GameOverScreen
 from projectile import Projectile
 from target import Target
 
@@ -54,6 +55,19 @@ class Player(ppb.Sprite):
                 update_event.scene.remove(d)
                 self.speed = 0
                 break
+
+        for t in update_event.scene.get(kind=Target):
+            if (t.position - self.position).length <= self.size:
+                ending_scene = ppb.Scene()
+                ending_scene.background_color = (0, 0, 0)
+                ending_scene.add(GameOverScreen())
+
+                signal(StartScene(ending_scene))
+
+    # Work around a scene transaction flow from
+    # Start Scene -> Game -> Game Over -> Start Scene
+    def on_scene_continued(self, scene_event: SceneContinued, signal):
+        signal(StopScene(scene_event.scene))
 
     def on_button_pressed(self, button_event: ButtonPressed, signal):
         self.target = button_event.position
