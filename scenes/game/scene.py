@@ -6,6 +6,7 @@ from scenes.game.sprites.score import Score
 from scenes.game.sprites.spawner import Spawner
 from scenes.game.sprites.target import Target
 from scenes.game_over.scene import GameOverScene
+from scenes.pause.scene import PauseScene
 
 class GameScene(ppb.Scene):
 
@@ -32,4 +33,4 @@ class GameScene(ppb.Scene):
 
     def on_key_pressed(self, key_event: KeyPressed, signal):
         if key_event.key == Escape:
-            signal(Quit())
+            signal(StartScene(PauseScene()))
