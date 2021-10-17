@@ -1,6 +1,5 @@
 import ppb
 from ppb.events import ButtonPressed, ButtonReleased, MouseMotion, Update
-from ppb_vector import Vector
 from scenes.game.sprites.destiny import Destiny
 from scenes.game.sprites.projectile import Projectile
 from scenes.game.sprites.target import Target
@@ -11,7 +10,7 @@ class Player(ppb.Sprite):
     position = ppb.Vector(0, -7)
     direction = ppb.Vector(0, 0)
     speed  = 0
-    target = Vector(0 ,0)
+    target = ppb.Vector(0 ,0)
     fire_timer = 0.0
     move_speed = 4
 
