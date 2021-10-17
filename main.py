@@ -1,4 +1,4 @@
 import ppb
-from main_scene import MainScene
+from title_scene import TitleScene
 
-ppb.GameEngine(first_scene=MainScene()).run()
+ppb.GameEngine(first_scene=TitleScene()).run()
