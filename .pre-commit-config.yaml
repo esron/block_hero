@@ -14,6 +14,8 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
+        stages:
+          - push
 -   repo: https://github.com/PyCQA/pylint
     rev: v2.11.1
     hooks:
@@ -21,3 +23,5 @@ repos:
         additional_dependencies: ["ppb"]
         entry: pylint main.py scenes
         pass_filenames: false
+        stages:
+          - push
