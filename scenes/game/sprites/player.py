@@ -9,14 +9,14 @@ class Player(ppb.Sprite):
     layer = 1
     position = ppb.Vector(0, -7)
     direction = ppb.Vector(0, 0)
-    speed  = 0
-    target = ppb.Vector(0 ,0)
+    speed = 0
+    target = ppb.Vector(0, 0)
     fire_timer = 0.0
     move_speed = 4
 
     def find_closest_target(self, update_event: Update):
         closest = None
-        min_distance = 1000000 # A big number
+        min_distance = 1000000  # A big number
 
         for t in update_event.scene.get(kind=Target):
             distance = (t.position - self.position).length
@@ -26,23 +26,24 @@ class Player(ppb.Sprite):
 
         return closest
 
-
     def on_update(self, update_event: Update, signal):
         self.fire_timer += update_event.time_delta
 
-        if self.fire_timer > 1 and  self.speed == 0:
+        if self.fire_timer > 1 and self.speed == 0:
             self.fire_timer = 0
             closest_target = self.find_closest_target(update_event)
 
             if closest_target:
                 update_event.scene.add(Projectile(
                     position=self.position,
-                    direction=(closest_target.position - self.position).normalize()
+                    direction=(closest_target.position -
+                               self.position).normalize()
                 ))
 
         self.position += self.direction * self.speed * update_event.time_delta
 
-        if (self.target - self.position).length > 0.0001: #  Prevent division by zero
+        # Prevent division by zero
+        if (self.target - self.position).length > 0.0001:
             self.direction = (self.target - self.position).normalize()
         else:
             self.speed = 0

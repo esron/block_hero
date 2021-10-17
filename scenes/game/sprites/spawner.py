@@ -4,6 +4,7 @@ from ppb_vector import Vector
 from scenes.game.sprites.player import Player
 from scenes.game.sprites.target import Target
 
+
 class Spawner(ppb.Sprite):
     size = 3
     position = Vector(0, 8)
@@ -16,8 +17,8 @@ class Spawner(ppb.Sprite):
 
         current_enemies = len(tuple(update_event.scene.get(kind=Target)))
 
-        if current_enemies < self.max_enemies and self.spawn_timer > self.spawn_seconds:
-
+        if current_enemies < self.max_enemies \
+                and self.spawn_timer > self.spawn_seconds:
             update_event.scene.add(Target(position=self.position))
             self.spawn_timer = 0
 
