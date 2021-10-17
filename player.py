@@ -3,7 +3,7 @@ from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Q
 from ppb.keycodes import Escape
 from ppb_vector import Vector
 from destiny import Destiny
-from game_over_screen import GameOverScreen
+from game_over_scene import GameOverScene
 from projectile import Projectile
 from target import Target
 
@@ -58,11 +58,7 @@ class Player(ppb.Sprite):
 
         for t in update_event.scene.get(kind=Target):
             if (t.position - self.position).length <= self.size:
-                ending_scene = ppb.Scene()
-                ending_scene.background_color = (0, 0, 0)
-                ending_scene.add(GameOverScreen())
-
-                signal(StartScene(ending_scene))
+                signal(StartScene(GameOverScene()))
 
     # Work around a scene transaction flow from
     # Start Scene -> Game -> Game Over -> Start Scene
