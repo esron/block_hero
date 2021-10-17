@@ -17,7 +17,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Analysing the code with pylint
+    - name: Analysing the code with pylint and flake8
       run: |
         pylint main.py scenes
         flake8 main.py scenes
