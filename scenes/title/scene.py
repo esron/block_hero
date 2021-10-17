@@ -2,8 +2,10 @@ import ppb
 from ppb.events import KeyPressed, Quit, SceneStarted, StartScene
 from ppb.keycodes import Q, Space
 from scenes.game.scene import GameScene
+from scenes.title.sprites.hold_sprite import HoldSprite
 from scenes.title.sprites.quit_sprite import QuitSprite
 from scenes.title.sprites.rule_one_sprite import RuleOneSprite
+from scenes.title.sprites.rule_tree_sprite import RuleTreeSprite
 from scenes.title.sprites.rule_two_sprite import RuleTwoSprite
 from scenes.title.sprites.rules_sprite import RulesSprite
 from scenes.title.sprites.start_sprite import StartSprite
@@ -18,6 +20,8 @@ class TitleScene(ppb.Scene):
         self.add(RulesSprite())
         self.add(RuleOneSprite())
         self.add(RuleTwoSprite())
+        self.add(RuleTreeSprite())
+        self.add(HoldSprite())
         self.add(StartSprite())
         self.add(QuitSprite())
 
