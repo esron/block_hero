@@ -1,7 +1,7 @@
 import ppb
 from ppb.events import KeyPressed, StopScene
 
-class GameOverScreen(ppb.Sprite):
+class GameOverSprite(ppb.Sprite):
     image = ppb.Text(
         f'GAME OVER\n\nPRESS ANY KEY',
         font=ppb.Font('fonts\RobotoMono-Regular.ttf', size=48),
