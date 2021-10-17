@@ -1,6 +1,5 @@
 import ppb
-from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, Update
-from ppb.keycodes import Escape
+from ppb.events import ButtonPressed, ButtonReleased, MouseMotion, Update
 from ppb_vector import Vector
 from scenes.game.sprites.destiny import Destiny
 from scenes.game.sprites.projectile import Projectile
@@ -68,7 +67,3 @@ class Player(ppb.Sprite):
         if mouse_event.buttons:
             self.target = mouse_event.position
             self.speed = self.move_speed
-
-    def on_key_pressed(self, key_event: KeyPressed, signal):
-        if key_event.key == Escape:
-            signal(Quit())

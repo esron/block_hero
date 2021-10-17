@@ -1,5 +1,6 @@
 import ppb
-from ppb.events import SceneContinued, SceneStarted, StartScene, StopScene, Update
+from ppb.events import KeyPressed, Quit, SceneContinued, SceneStarted, StartScene, StopScene, Update
+from ppb.keycodes import Escape
 from scenes.game.sprites.player import Player
 from scenes.game.sprites.score import Score
 from scenes.game.sprites.spawner import Spawner
@@ -28,3 +29,7 @@ class GameScene(ppb.Scene):
     # Start Scene -> Game -> Game Over -> Start Scene
     def on_scene_continued(self, scene_event: SceneContinued, signal):
         signal(StopScene(scene_event.scene))
+
+    def on_key_pressed(self, key_event: KeyPressed, signal):
+        if key_event.key == Escape:
+            signal(Quit())
