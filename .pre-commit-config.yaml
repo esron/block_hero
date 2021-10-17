@@ -18,3 +18,6 @@ repos:
     rev: v2.11.1
     hooks:
       - id: pylint
+        additional_dependencies: ["ppb"]
+        entry: pylint main.py scenes
+        pass_filenames: false
