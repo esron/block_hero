@@ -1,5 +1,5 @@
 import ppb
-from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, SceneContinued, StopScene, Update
+from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, Update
 from ppb.keycodes import Escape
 from ppb_vector import Vector
 from scenes.game.sprites.destiny import Destiny
@@ -54,11 +54,6 @@ class Player(ppb.Sprite):
                 update_event.scene.remove(d)
                 self.speed = 0
                 break
-
-    # Work around a scene transaction flow from
-    # Start Scene -> Game -> Game Over -> Start Scene
-    def on_scene_continued(self, scene_event: SceneContinued, signal):
-        signal(StopScene(scene_event.scene))
 
     def on_button_pressed(self, button_event: ButtonPressed, signal):
         self.target = button_event.position

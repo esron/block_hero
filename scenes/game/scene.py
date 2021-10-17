@@ -1,5 +1,5 @@
 import ppb
-from ppb.events import SceneStarted, StartScene, Update
+from ppb.events import SceneContinued, SceneStarted, StartScene, StopScene, Update
 from scenes.game.sprites.player import Player
 from scenes.game.sprites.score import Score
 from scenes.game.sprites.spawner import Spawner
@@ -23,3 +23,8 @@ class GameScene(ppb.Scene):
                     signal(StartScene(GameOverScene()))
                     break
             break
+
+    # Work around a scene transaction flow from
+    # Start Scene -> Game -> Game Over -> Start Scene
+    def on_scene_continued(self, scene_event: SceneContinued, signal):
+        signal(StopScene(scene_event.scene))
