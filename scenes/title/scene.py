@@ -1,7 +1,7 @@
 import ppb
 from ppb.events import KeyPressed, SceneStarted, StartScene
 from game_scene import GameScene
-from title_sprite import TitleSprite
+from scenes.title.sprites.title_sprite import TitleSprite
 
 
 class TitleScene(ppb.Scene):
