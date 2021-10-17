@@ -1,7 +1,7 @@
 import ppb
 from ppb.events import KeyPressed, SceneStarted, StopScene
 
-from game_over_sprite import GameOverSprite
+from scenes.game_over.sprites.game_over_sprite import GameOverSprite
 
 class GameOverScene(ppb.Scene):
     background_color = (0, 0, 0)

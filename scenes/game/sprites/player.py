@@ -2,7 +2,7 @@ import ppb
 from ppb.events import ButtonPressed, ButtonReleased, KeyPressed, MouseMotion, Quit, SceneContinued, StartScene, StopScene, Update
 from ppb.keycodes import Escape
 from ppb_vector import Vector
-from game_over_scene import GameOverScene
+from scenes.game_over.scene import GameOverScene
 from scenes.game.sprites.destiny import Destiny
 from scenes.game.sprites.projectile import Projectile
 from scenes.game.sprites.target import Target
