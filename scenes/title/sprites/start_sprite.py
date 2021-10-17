@@ -3,7 +3,7 @@ from ppb_vector import Vector
 
 
 class StartSprite(ppb.Sprite):
-    position = Vector(0, -3)
+    position = Vector(0, -4)
     image = ppb.Text(
         'PRESS SPACE TO START',
         font=ppb.Font('fonts\RobotoMono-Regular.ttf', size=24),  # noqa: W605
