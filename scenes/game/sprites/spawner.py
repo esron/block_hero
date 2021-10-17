@@ -1,8 +1,8 @@
 import ppb
 from ppb.events import Update
 from ppb_vector import Vector
-from player import Player
-from target import Target
+from scenes.game.sprites.player import Player
+from scenes.game.sprites.target import Target
 
 class Spawner(ppb.Sprite):
     size = 3

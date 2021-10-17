@@ -1,6 +1,6 @@
 import ppb
 from ppb.events import KeyPressed, SceneStarted, StartScene
-from game_scene import GameScene
+from scenes.game.scene import GameScene
 from scenes.title.sprites.title_sprite import TitleSprite
 
 

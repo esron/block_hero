@@ -1,9 +1,9 @@
 import ppb
 from ppb.events import SceneStarted
-from player import Player
-from score import Score
-from spawner import Spawner
-from target import Target
+from scenes.game.sprites.player import Player
+from scenes.game.sprites.score import Score
+from scenes.game.sprites.spawner import Spawner
+from scenes.game.sprites.target import Target
 
 class GameScene(ppb.Scene):
 

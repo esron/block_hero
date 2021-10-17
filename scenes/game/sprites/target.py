@@ -1,8 +1,8 @@
 import ppb
 from ppb.events import Update
 from ppb_vector import Vector
-from projectile import Projectile
-from score import Score
+from scenes.game.sprites.projectile import Projectile
+from scenes.game.sprites.score import Score
 
 
 class Target(ppb.Sprite):
