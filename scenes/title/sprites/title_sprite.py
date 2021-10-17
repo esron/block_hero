@@ -1,6 +1,4 @@
 import ppb
-from ppb.events import KeyPressed, StartScene
-
 
 
 class TitleSprite(ppb.Sprite):
