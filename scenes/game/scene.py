@@ -40,4 +40,6 @@ class GameScene(ppb.Scene):
     def on_key_pressed(self, key_event: KeyPressed, signal):
         if key_event.key == Escape:
             self.paused = True
-            signal(StartScene(PauseScene()))
+            for s in key_event.scene.get(kind=Score):
+                signal(StartScene(PauseScene(points=s.points)))
+                break
