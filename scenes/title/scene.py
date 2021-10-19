@@ -1,8 +1,8 @@
 import ppb
 from ppb.events import KeyPressed, Quit, SceneStarted, StartScene
 from ppb.keycodes import Q, Space
+from global_sprites.quit_sprite import QuitSprite
 from scenes.game.scene import GameScene
-from scenes.title.sprites.quit_sprite import QuitSprite
 from scenes.title.sprites.rule_four_sprite import RuleFourSprite
 from scenes.title.sprites.rule_one_sprite import RuleOneSprite
 from scenes.title.sprites.rule_tree_sprite import RuleTreeSprite

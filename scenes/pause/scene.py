@@ -2,10 +2,9 @@ from typing import Callable
 import ppb
 from ppb.events import KeyPressed, Quit, SceneStarted, StopScene
 from ppb.keycodes import Q, Escape
-from scenes.pause.sprites.continue_sprite import ContinueSprite
-
+from global_sprites.continue_sprite import ContinueSprite
+from global_sprites.quit_sprite import QuitSprite
 from scenes.pause.sprites.pause_menu_title_sprite import PauseMenuTitleSprite
-from scenes.pause.sprites.quit_sprite import QuitSprite
 from scenes.pause.sprites.score_sprite import ScoreSprite
 
 
